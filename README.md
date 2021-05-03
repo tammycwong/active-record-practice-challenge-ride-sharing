@@ -123,7 +123,7 @@ Use Active Record association macros and Active Record query methods where appro
   - takes a `passenger` instance and removes the ride for this driver
   - you will have to delete a row from the `rides` table to get this to work!
 -  `Driver.best_performing_driver`
-  - returns the `Driver` instance with the most rides
+    -  returns the `Driver` instance with the most rides
 
 #### Passenger
 
