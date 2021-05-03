@@ -1,4 +1,4 @@
-# Object Relations Practice Code Challenge - Passengers
+# Object Relations Practice Code Challenge - Ride Sharing
 
 For this assignment, we'll be working with a Passenger domain.
 
