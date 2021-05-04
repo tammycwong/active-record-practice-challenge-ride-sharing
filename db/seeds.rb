@@ -28,9 +28,6 @@ end
 puts "🚗🚗🚗 Seeding rides 🚗🚗🚗..."
 # Create 20 random rides
 50.times do
-  driver_id = Driver.ids.sample # Get a driver instance
-  passenger_id = Passenger.ids.sample # Get a passenger instance
-  price = rand(1.0..1000.0)   # Get a random price between 1 and 1000
 
   # TODO: create rides! Remember, a ride belongs to a driver
   # and a ride belongs to a passenger. Driver -< Ride >- Passenger
