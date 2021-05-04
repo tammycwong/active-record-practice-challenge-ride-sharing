@@ -20,17 +20,15 @@ For our purposes, a `Passenger` has many `Ride`s, a `Driver` has many `Ride`s, a
 
 To get started, run `bundle install` while inside of this directory.
 
-Build out all of the methods listed in the deliverables. The methods are listed in a suggested order, but you can feel free to tackle the ones you think are easiest. Be careful: some of the later methods rely on earlier ones.
+Build out all of the methods listed in the deliverables. The methods are listed in a suggested order, but you can feel free to tackle the ones you think are easiest. Be careful: some of the later methods may rely on earlier ones.
 
-**Remember!** This code challenge does not have tests. You cannot run `rspec` and you cannot run `learn`. You'll need to create your own sample instances so that you can try out your code on your own. Make sure your associations and methods work in the console before submitting.
+**Remember!** This code challenge does not have tests. You cannot run `rspec` and you cannot run `learn`. You'll need to create your own sample instances so that you can try out your code on your own. Make sure your associations and methods work in the console.
 
-We've provided you with a tool that you can use to test your code. To use it, run `rake console` from the command line. This will start a `pry` session with your classes defined. You can test out the methods that you write here. You are also encouraged to use the `seeds.rb` file to create sample data to test your models and associations.
+You can use `rake console` to test your code. To use it, run `rake console` from the command line. This will start a `pry` session with your classes defined. You can test out the methods that you write here. You are also encouraged to use the `seeds.rb` file to create sample data to test your models and associations.
 
 Writing error-free code is more important than completing all of the deliverables listed - prioritize writing methods that work over writing more methods that don't work. You should test your code in the console as you write.
 
 Similarly, messy code that works is better than clean code that doesn't. First, prioritize getting things working. Then, if there is time at the end, refactor your code to adhere to best practices. 
-
-**Before you submit!** Save and run your code to verify that it works as you expect. If you have any methods that are not working yet, feel free to leave comments describing your progress.
 
 ## What You Already Have
 
@@ -64,20 +62,20 @@ You will need to create the migration for the `rides` table using the attributes
 
 Write the following methods in the classes in the files provided. Feel free to build out any helper methods if needed.
 
-Deliverables use the notation `#` for instance methods, and `.` for class methods.
+Deliverables use the notation `#` for instance methods and `.` for class methods.
 
-Remember: Active Record give your classes access to a lot of built-in methods! Keep in mind what methods Active Record gives you access to on each of your classes when you're approaching the deliverables below.
+Remember: Active Record gives your classes access to a lot of built-in methods! Keep in mind what methods Active Record gives you access to on each of your classes when you're approaching the deliverables below.
 
 ### Migrations
 
 Before working on the rest of the deliverables, you will need to create a migration for the `rides` table. 
 
-- A `Ride` belongs to a `Passenger`, and a `Ride` also belongs to an `Driver`. Create a migration to create the `rides` table and in your migration, create any columns your `rides` table will need to establish these relationships.
-  - The `rides` table should also have a `price` column that stores a decimal.
+- A `Ride` belongs to a `Passenger` and a `Ride` also belongs to a `Driver`. Create a migration to create the `rides` table and in your migration, create any columns your `rides` table will need to establish these relationships.
+  - The `rides` table should have a `price` column that stores a decimal
   - The `rides` table should also have a `pick_up` column that stores a string
   - The `rides` table should also have a `drop_off` column that stores a string
 
-After creating your migration, read through the `seeds.rb` file and use it to create instances of your `Ride` class so you can test your code.
+After creating your migration, don't forget to `rake db:migrate`. Make sure your migrations are up! Then, read through the `seeds.rb` file and use it to create instances of your `Ride` class so you can test your code.
 
 **Once you've set up your `Ride` class**, work on building out the following deliverables.
 
@@ -116,14 +114,16 @@ Use Active Record association macros and Active Record query methods where appro
 #### Driver
 
 - `Driver#accept_ride_request(passenger, price, pick_up, drop_off)`
-  - takes a `passenger` (an instance of the `Passenger` class), `pick_up` (string), `drop_off` (string), and a `price` (decimal) as arguments, and creates a new `ride` in the database associated with the passenger and the driver
+  - takes a `passenger` (an instance of the `Passenger` class), `pick_up` location (string), `drop_off` location (string), and a `price` (decimal) as arguments, and creates a new `ride` in the database associated with the passenger and the driver
 - `Driver#total_income`
-  - returns the total price for all the driver's rides
+  - returns the sum of the prices for all the driver's rides
 - `Driver#cancel_ride(passenger)`
   - takes a `passenger` instance and removes the ride for this driver
   - you will have to delete a row from the `rides` table to get this to work!
--  `Driver.best_performing_driver`
+-  `Driver.most_active_driver`
     -  returns the `Driver` instance with the most rides
+-  `Driver.best_performing_driver`
+    -  returns the `Driver` instance with the highest rating
 
 #### Passenger
 
@@ -136,8 +136,8 @@ Use Active Record association macros and Active Record query methods where appro
   - returns the average rating of all of the passengers
 - `Passenger.worst_rated`
   - returns the `Passenger` instance with the worst rating
-- `Passenger.worst_rating`
-  - returns the worst rating
+- `Passenger.worst_rating_in_existence`
+  - returns the worst rating integer value
 
 
 ## Rubric
