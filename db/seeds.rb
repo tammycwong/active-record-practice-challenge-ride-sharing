@@ -34,7 +34,11 @@ puts "🚗🚗🚗 Seeding rides 🚗🚗🚗..."
 
   # Feel free to use Faker for some fake pick up/drop off address data:
   # https://github.com/faker-ruby/faker/blob/master/doc/default/address.md
-
+  Ride.create(driver_id: Driver.all.sample.id, 
+              passenger_id: Passenger.all.sample.id,
+              drop_off: Faker::Address.full_address,
+              pick_up: Faker::Address.full_address,
+              price: rand(1...400))
 end
 
 puts "Done seeding! 🌸"
